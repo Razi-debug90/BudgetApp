@@ -193,9 +193,12 @@
             appConfig.baseIncome = parseFloat(document.getElementById('setInc').value) || 0.00;
             appConfig.baseRent = parseFloat(document.getElementById('setRent').value) || 0.00;
             appConfig.baseBills = parseFloat(document.getElementById('setBills').value) || 0.00;
-            appConfig.apiUrl = document.getElementById('setApiUrl').value;
-            appConfig.apiKey = document.getElementById('setApiKey').value;
+            
+            // The .trim() command permanently destroys hidden spaces from copy/pasting
+            appConfig.apiUrl = document.getElementById('setApiUrl').value.trim();
+            appConfig.apiKey = document.getElementById('setApiKey').value.trim();
             appConfig.masterPass = document.getElementById('setMasterPass').value;
+            
             localStorage.setItem('budgetConfigV9', JSON.stringify(appConfig));
             closeSettings(); updateUI();
         }
